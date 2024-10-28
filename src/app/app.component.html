@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav mode="side" class="sidenav" fixedInViewport="true" [attr.role]="isHandset ? 'dialog' : 'navigation'" [(opened)]="opened">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Home</a>
+      <a mat-list-item href="/project-menu">Portfolio</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle Sidenav">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

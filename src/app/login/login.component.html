@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h2>Connexion</h2>
+
+  <form [formGroup]="logForm" (ngSubmit)="sendFormLogin()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="Entrez votre email" />
+      <mat-error *ngIf="logForm.get('email')?.invalid && logForm.get('email')?.touched">
+        Veuillez entrer un email valide.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input matInput [type]="passwordFieldType" formControlName="password" placeholder="Entrez votre mot de passe" />
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+        <mat-icon>{{ passwordFieldType === 'password' ? 'visibility' : 'visibility_off' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="logForm.get('password')?.invalid && logForm.get('password')?.touched">
+        Le mot de passe est requis.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="errorMsg" class="error-msg">{{ errorMsg }}</div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loading">Connexion</button>
+  </form>
+</div>

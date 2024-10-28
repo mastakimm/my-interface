@@ -1,0 +1,14 @@
+<h2>Ajouter un Projet</h2>
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nom du Projet</mat-label>
+    <input matInput name="name" [(ngModel)]="project.name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput name="description" [(ngModel)]="project.description"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">Ajouter</button>
+</form>
