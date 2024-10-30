@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): boolean {
-    const expirationTimestamp = getCookie('expirationTime');
+    const expirationTimestamp = getCookie('expiredName');
 
     if (expirationTimestamp) {
       const expirationTime = parseInt(expirationTimestamp, 10);
